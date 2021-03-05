@@ -10,7 +10,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
       })
 
 document.querySelector('.sign-in-or-sign-out').insertAdjacentHTML('beforeend', `
-<h1> Signed in as ${user.displayName}</h1>
+<h1 class= font-bold> Signed in as ${user.displayName}</h1>
 <button class="underline sign-out">Sign Out</button>`)
 
 document.querySelector('.sign-out').addEventListener('click', function(event) {
@@ -47,7 +47,7 @@ document.querySelector('.dropdowns').insertAdjacentHTML('beforeend', `
     </style>
     
     <div class="dropdown-favorites">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold m-6 px-2 rounded">Favorites ∨</button>
+      <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold m-6 px-2 rounded">Favorites ∨</button>
       <div class="dropdown-favorites-content">
         <p><button>All Dishes</button></p>
         <p><button>My Favorites</button></p>

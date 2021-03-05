@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChowDown Review Form</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" type="text/css">
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.css" />
+</head>
+
+<body>
+  <div class="sign-in-or-sign-out"></div>
+ 
+  <!-- Put the Firebase config here -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+  <!-- Firebase Auth -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {} // replace
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="index.js"></script>
+
+  <div class="flex">
+      <div class = "w-1/2 p-4 text-xl underline"><a href='index.html'>Home</a></div>
+      <div class = "w-1/2 p-4 text-xl text-right underline">Sign out</div>
+  </div>
+  
+  <h1 class="text-center font-bold text-6xl p-6 text-yellow-500">ChowDown</h1>
+
+  <div>
+    <form class="text-center object-center w-full my-8 py-4 ">
+        <p>
+        <input type="text" id="restaurant-name" name="restaurant-name" placeholder="Restaurant Name" class="my-2 p-2 w-64 border border-gray-400 rounded shadow-xl focus:outline-none focus:ring-gray-500 focus:border-gray-500">
+        </p><p>
+        <input type="text" id="dish-name" name="dish-name" placeholder="Dish Name" class="my-2 p-2 w-64 border border-gray-400 rounded shadow-xl focus:outline-none focus:ring-gray-500 focus:border-gray-500">
+        </p><p>
+        <input type="text" id="image-url" name="image-url" placeholder="Image URL" class="my-2 p-2 w-64 border border-gray-400 rounded shadow-xl focus:outline-none focus:ring-gray-500 focus:border-gray-500">
+        </p><p>
+        <div class="dropdowns">    
+
+                <!--CITY DROPDOWN-->
+                      
+                      <style>
+                        .dropdown-city {
+                          position: relative;
+                          display: inline-block;
+                        }
+                        
+                        .dropdown-city-content {
+                          display: none;
+                          position: absolute;
+                          background-color: #f9f9f9;
+                          min-width: 160px;
+                          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                          padding: 12px 16px;
+                          z-index: 1;
+                        }
+                        
+                        .dropdown-city:hover .dropdown-city-content {
+                          display: block;
+                        }
+                
+                        .dropdown-city-content p:hover {background-color:#6f86c4}
+                
+                        </style>
+                        
+                        <div class="dropdown-city">
+                          <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold m-6 px-2 rounded">City ∨</button>
+                          <div class="dropdown-city-content">
+                            <p><button>Boston</button></p>
+                            <p><button>Chicago</button></p>
+                            <p><button>LA</button></p>
+                            <p><button>Miami</button></p>
+                            <p><button>NYC</button></p>
+                            <p><button>Philly</button></p>
+                          </div>
+                        </div>
+                
+                        <!--CUISINE DROPDOWN-->
+                      
+                      <style>
+                        .dropdown-cuisine {
+                          position: relative;
+                          display: inline-block;
+                        }
+                        
+                        .dropdown-cuisine-content {
+                          display: none;
+                          position: absolute;
+                          background-color: #f9f9f9;
+                          min-width: 160px;
+                          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                          padding: 12px 16px;
+                          z-index: 1;
+                        }
+                        
+                        .dropdown-cuisine:hover .dropdown-cuisine-content {
+                          display: block;
+                        }
+                
+                        .dropdown-cuisine-content p:hover {background-color:#6f86c4}
+                
+                        </style>
+                        
+                        <div class="dropdown-cuisine">
+                          <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold m-6 px-2 rounded">Cuisine ∨</button>
+                          <div class="dropdown-cuisine-content">
+                            <p><button>American</button></p>
+                            <p><button>Asian</button></p>
+                            <p><button>Dessert</button></p>
+                            <p><button>Healthy</button></p>
+                            <p><button>Italian</button></p>
+                            <p><button>Meditteranean</button></p>
+                            <p><button>Mexican</button></p>
+                          </div>
+                        </div>
+                
+                        <!--RATING DROPDOWN-->
+                      
+                      <style>
+                        .dropdown-rating {
+                          position: relative;
+                          display: inline-block;
+                        }
+                        
+                        .dropdown-rating-content {
+                          display: none;
+                          position: absolute;
+                          background-color: #f9f9f9;
+                          min-width: 160px;
+                          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                          padding: 12px 16px;
+                          z-index: 1;
+                        }
+                        
+                        .dropdown-rating:hover .dropdown-rating-content {
+                          display: block;
+                        }
+                
+                        .dropdown-rating-content p:hover {background-color:#6f86c4}
+                
+                        </style>
+                        
+                        <div class="dropdown-rating">
+                          <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold m-6 px-2 rounded">Rating ∨</button>
+                          <div class="dropdown-rating-content">
+                            <p><button>*</button></p>
+                            <p><button>**</button></p>
+                            <p><button>***</button></p>
+                            <p><button>****</button></p>
+                            <p><button>*****</button></p>
+                          </div>
+                        </div>
+                
+                        <!--INSTAGRAM DROPDOWN-->
+                      
+                      <style>
+                        .dropdown-insta {
+                          position: relative;
+                          display: inline-block;
+                        }
+                        
+                        .dropdown-insta-content {
+                          display: none;
+                          position: absolute;
+                          background-color: #f9f9f9;
+                          min-width: 160px;
+                          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                          padding: 12px 16px;
+                          z-index: 1;
+                        }
+                        
+                        .dropdown-insta:hover .dropdown-insta-content {
+                          display: block;
+                        }
+                
+                        .dropdown-insta-content p:hover {background-color:#e4ac34}
+                
+                        </style>
+                        
+                        <div class="dropdown-insta">
+                          <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold m-6 px-2 rounded">Instagram-worthy Rating ∨</button>
+                          <div class="dropdown-insta-content">
+                            <p><button>*</button></p>
+                            <p><button>**</button></p>
+                            <p><button>***</button></p>
+                            <p><button>****</button></p>
+                            <p><button>*****</button></p>
+                          </div>
+                        </div>
+                
+                    </div>
+        </p><p>
+            <input type="text" id="review" name="review" placeholder="Review" class="my-2 p-2 w-96 h-64 border border-gray-400 rounded shadow-xl focus:outline-none focus:ring-gray-500 focus:border-gray-500">
+        </p>
+
+        <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-xl">Post</button>
+
+        
+    </form>
+  </div>
+
+
+</div>
+
+  
+</body>
+
+</html>
