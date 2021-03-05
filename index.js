@@ -15,7 +15,7 @@ document.querySelector('.sign-in-or-sign-out').insertAdjacentHTML('beforeend', `
 
 document.querySelector('.sign-out').addEventListener('click', function(event) {
 firebase.auth().signOut()
-document.location.href = 'home.html'
+document.location.href = 'index.html'
 })
 
 document.querySelector('.dropdowns').insertAdjacentHTML('beforeend', `
