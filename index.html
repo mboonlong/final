@@ -6,22 +6,221 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Final</title>
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" type="text/css">
+  <script src="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.css" />
 </head>
 
 <body>
-  <div class="sign-in-or-sign-out"></div>
+  <h1 class="text-center font-bold text-6xl p-6">ChowDown</h1>
+
+  <div class="sign-in-or-sign-out pt-4 px-16 text-center">
+      <!-- JavaScript puts stuff here -->
+    </div>
+
+<div class="dropdowns">    
+
+<!--CITY DROPDOWN-->
+    
+    <style>
+      .dropdown-city {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .dropdown-city-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+      }
+      
+      .dropdown-city:hover .dropdown-city-content {
+        display: block;
+      }
+
+      .dropdown-city-content p:hover {background-color:#6f86c4}
+
+      </style>
+      
+      <div class="dropdown-city">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold m-6 px-2 rounded">City ∨</button>
+        <div class="dropdown-city-content">
+          <p><button>Boston</button></p>
+          <p><button>Chicago</button></p>
+          <p><button>LA</button></p>
+          <p><button>Miami</button></p>
+          <p><button>NYC</button></p>
+          <p><button>Philly</button></p>
+        </div>
+      </div>
+
+      <!--CUISINE DROPDOWN-->
+    
+    <style>
+      .dropdown-cuisine {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .dropdown-cuisine-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+      }
+      
+      .dropdown-cuisine:hover .dropdown-cuisine-content {
+        display: block;
+      }
+
+      .dropdown-cuisine-content p:hover {background-color:#6f86c4}
+
+      </style>
+      
+      <div class="dropdown-cuisine">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold m-6 px-2 rounded">Cuisine ∨</button>
+        <div class="dropdown-cuisine-content">
+          <p><button>American</button></p>
+          <p><button>Asian</button></p>
+          <p><button>Dessert</button></p>
+          <p><button>Healthy</button></p>
+          <p><button>Italian</button></p>
+          <p><button>Meditteranean</button></p>
+          <p><button>Mexican</button></p>
+        </div>
+      </div>
+
+      <!--RATING DROPDOWN-->
+    
+    <style>
+      .dropdown-rating {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .dropdown-rating-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+      }
+      
+      .dropdown-rating:hover .dropdown-rating-content {
+        display: block;
+      }
+
+      .dropdown-rating-content p:hover {background-color:#6f86c4}
+
+      </style>
+      
+      <div class="dropdown-rating">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold m-6 px-2 rounded">Rating ∨</button>
+        <div class="dropdown-rating-content">
+          <p><button>*</button></p>
+          <p><button>**</button></p>
+          <p><button>***</button></p>
+          <p><button>****</button></p>
+          <p><button>*****</button></p>
+        </div>
+      </div>
+
+      <!--INSTAGRAM DROPDOWN-->
+    
+    <style>
+      .dropdown-insta {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .dropdown-insta-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+      }
+      
+      .dropdown-insta:hover .dropdown-insta-content {
+        display: block;
+      }
+
+      .dropdown-insta-content p:hover {background-color:#6f86c4}
+
+      </style>
+      
+      <div class="dropdown-insta">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold m-6 px-2 rounded">Instagram-worthy Rating ∨</button>
+        <div class="dropdown-insta-content">
+          <p><button>*</button></p>
+          <p><button>**</button></p>
+          <p><button>***</button></p>
+          <p><button>****</button></p>
+          <p><button>*****</button></p>
+        </div>
+      </div>
+
+  </div>
+
+    <div class = "reviews md:flex">
+      <div class="md:flex flex-row border border-black w-full mt-4 items-center">
+          <div><img src = "salad bowl.jpg" class="m-6 w-60"></img></div>
+          <ul class = "ml-16">
+          <li>Restaurant: Salad Palace</li>
+          <li>City: Chicago</li>
+          <li>Cuisine: Healthy</li>
+          <li>Dish: Chickpea Salad Bowl</li>
+          <li>Rating: *****</li>
+          <li>Instagram Rating: *****</li>
+          <li>Comments: "This salad bowl is delicious and makes a great Instagram photo too! Highly recommend for anyone visiting Wicker Park." -Chealsea C.</li>
+          </ul>
+      </div>
+  </div>
+
+      <div class = "reviews md:flex">
+          <div class="md:flex flex-row border border-black w-full mt-4 items-center">
+              <div><img src = "hotdog.jpg" class="m-6 w-60"></img></div>
+              <ul class = "ml-16">
+              <li>Restaurant: Diggity Dog</li>
+              <li>City: Chicago</li>
+              <li>Cuisine: American</li>
+              <li>Dish: Chicago dog</li>
+              <li>Rating: *****</li>
+              <li>Instagram Rating: *</li>
+              <li>Comments: "Not the prettiest plate, but this dog is a must have." -Sarah P.</li>
+              </ul>
+          </div>
+          </div>
+
  
   <!-- Put the Firebase config here -->
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
-  <!-- Firebase Auth -->
-  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-firestore.js"></script>
 
   <script>
     // Your web app's Firebase configuration
-    var firebaseConfig = {} // replace
+    var firebaseConfig = {
+    apiKey: "AIzaSyCPWTdRb64Em4EsLCgg5hdSQDPql1Te8n8",
+    authDomain: "chowdown-8bd8b.firebaseapp.com",
+    projectId: "chowdown-8bd8b",
+    storageBucket: "chowdown-8bd8b.appspot.com",
+    messagingSenderId: "773957655085",
+    appId: "1:773957655085:web:e43265bae4fc5f641af6a4"}; // replace
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
   </script>
