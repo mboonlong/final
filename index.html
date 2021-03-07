@@ -18,159 +18,19 @@
       <!-- JavaScript puts stuff here -->
     </div>
 
-<div class="dropdowns md:flex">    
-
-<!--CITY DROPDOWN-->
-    
-    <style>
-      .dropdown-city {
-        position: relative;
-        display: inline-block;
-      }
-      
-      .dropdown-city-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        padding: 12px 16px;
-        z-index: 1;
-      }
-      
-      .dropdown-city:hover .dropdown-city-content {
-        display: block;
-      }
-
-      .dropdown-city-content p:hover {background-color:#6f86c4}
-
-      </style>
-      
-      <div class="dropdown-city">
-        <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold m-6 px-2 rounded">City ∨</button>
-        <div class="dropdown-city-content">
-          <p><button>Boston</button></p>
-          <p><button>Chicago</button></p>
-          <p><button>LA</button></p>
-          <p><button>Miami</button></p>
-          <p><button>NYC</button></p>
-          <p><button>Philly</button></p>
+  <div class = "cities mx-auto container">
+    <div class = "flex">
+        <div class="w-full my-16 p-8 space-y-4">
+          <div id="all-button" class="city-button inline-block border bg-yellow-500 text-white rounded px-4 py-2">All</a></div>
+          <div id="chicago-button" class="city-button inline-block border bg-yellow-500 text-white rounded px-4 py-2">Chicago</a></div>
+          <div id="los-angeles-button" class="city-button inline-block border bg-yellow-500 text-white rounded px-4 py-2">Los Angeles</a></div>
+          <div id="new-york-button" class="city-button inline-block border bg-yellow-500 text-white rounded px-4 py-2">New York</a></div>
+          <div id="boston-button" class="city-button inline-block border bg-yellow-500 text-white rounded px-4 py-2">Boston</a></div>
+          <div id="miami-button" class="city-button inline-block border bg-yellow-500 text-white rounded px-4 py-2">Miami</a></div>
+          <div id="philadelphia-button" class="city-button inline-block border bg-yellow-500 text-white rounded px-4 py-2">Philadelphia</a></div>
         </div>
       </div>
-
-      <!--CUISINE DROPDOWN-->
-    
-    <style>
-      .dropdown-cuisine {
-        position: relative;
-        display: inline-block;
-      }
-      
-      .dropdown-cuisine-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        padding: 12px 16px;
-        z-index: 1;
-      }
-      
-      .dropdown-cuisine:hover .dropdown-cuisine-content {
-        display: block;
-      }
-
-      .dropdown-cuisine-content p:hover {background-color:#6f86c4}
-
-      </style>
-      
-      <div class="dropdown-cuisine">
-        <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold m-6 px-2 rounded">Cuisine ∨</button>
-        <div class="dropdown-cuisine-content">
-          <p><button>American</button></p>
-          <p><button>Asian</button></p>
-          <p><button>Dessert</button></p>
-          <p><button>Healthy</button></p>
-          <p><button>Italian</button></p>
-          <p><button>Meditteranean</button></p>
-          <p><button>Mexican</button></p>
-        </div>
-      </div>
-
-      <!--RATING DROPDOWN-->
-    
-    <style>
-      .dropdown-rating {
-        position: relative;
-        display: inline-block;
-      }
-      
-      .dropdown-rating-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        padding: 12px 16px;
-        z-index: 1;
-      }
-      
-      .dropdown-rating:hover .dropdown-rating-content {
-        display: block;
-      }
-
-      .dropdown-rating-content p:hover {background-color:#6f86c4}
-
-      </style>
-      
-      <div class="dropdown-rating">
-        <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold m-6 px-2 rounded">Rating ∨</button>
-        <div class="dropdown-rating-content">
-          <p><button>⭐</button></p>
-          <p><button>⭐⭐</button></p>
-          <p><button>⭐⭐⭐</button></p>
-          <p><button>⭐⭐⭐⭐</button></p>
-          <p><button>⭐⭐⭐⭐⭐</button></p>
-        </div>
-      </div>
-
-      <!--INSTAGRAM DROPDOWN-->
-    
-    <style>
-      .dropdown-insta {
-        position: relative;
-        display: inline-block;
-      }
-      
-      .dropdown-insta-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        padding: 12px 16px;
-        z-index: 1;
-      }
-      
-      .dropdown-insta:hover .dropdown-insta-content {
-        display: block;
-      }
-
-      .dropdown-insta-content p:hover {background-color:#6f86c4}
-
-      </style>
-      
-      <div class="dropdown-insta">
-        <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold m-6 px-2 rounded">Instagram-worthy Rating ∨</button>
-        <div class="dropdown-insta-content">
-          <p><button>📸</button></p>
-          <p><button>📸📸</button></p>
-          <p><button>📸📸📸</button></p>
-          <p><button>📸📸📸📸</button></p>
-          <p><button>📸📸📸📸📸</button></p>
-        </div>
-      </div>
-
+   <!-- put city filters in here -->
   </div>
 
     <div class = "reviews md:flex">

@@ -45,17 +45,30 @@ document.addEventListener('DOMContentLoaded', async function(event) {
     // })
 
       let restaurantName = document.querySelector('#restaurant-name').value
+      let city = document.querySelector('#city').value
       let dishName = document.querySelector('#dish-name').value
       let imageUrl = document.querySelector('#image-url').value
       let review = document.querySelector('#review').value
+      let rating = document.querySelector('#rating').value
     
     let docRef = await db.collection('reviews').add({
       Restaurant: restaurantName,
+      City: city,
       Dish: dishName,
       Image: imageUrl,
+      Rating: rating,
       Review: review
       // , City: dishCity
       })
+
+    let reviewId = docRef.id 
+    
+    document.querySelector('#restaurant-name').value = '' 
+    document.querySelector('#city').value = '' 
+    document.querySelector('#dish-name').value = '' 
+    document.querySelector('#image-url').value = '' 
+    document.querySelector('#review').value = '' 
+    document.querySelector('#rating').value = '' 
 
   })
     
