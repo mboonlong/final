@@ -18,6 +18,9 @@ firebase.auth().signOut()
 document.location.href = 'index.html'
 })
 
+document.querySelector('.submissionlink').insertAdjacentHTML('beforeend',`
+<a href='form.html'>Submit New Review</a>`)
+
 document.querySelector('.dropdowns').insertAdjacentHTML('beforeend', `
 
 <!--FAVORITES DROPDOWN-->
@@ -55,6 +58,67 @@ document.querySelector('.dropdowns').insertAdjacentHTML('beforeend', `
       </div>
     </div>`)
 
+    let querySnapshot = await db.collection('reviews').get()
+  
+    let dishList = querySnapshot.docs
+    for (let i=0; i<dishList.length; i++) {
+      let dishData = dishList[i].data()
+      let imageUrl = dishData.Image
+      let restaurantName = dishData.Restaurant
+      let dishName = dishData.Dish
+      let review = dishData.Review
+      let city = dishData.City
+  
+  document.querySelector('.reviews').insertAdjacentHTML('beforeend',`
+  <div class="md:flex flex-row border border-black w-full mt-4 items-center">
+  <div><img src = "${imageUrl}" class="m-6 w-60"></img></div>
+  <ul class = "ml-16">
+  <li>Restaurant: ${restaurantName}</li>
+  <li>City: ${city}</li>
+  <li>Cuisine: Healthy</li>
+  <li>Dish: ${dishName}</li>
+  <li>Rating: ⭐⭐⭐⭐⭐</li>
+  <li>Instagram Rating: 📸📸📸📸📸</li>
+  <li>Comments: ${review} </li>
+  </ul>
+  </div>
+  
+  `)
+}
+
+// document.querySelector('.dropdown-city-content').addEventListener('click', async function() {
+
+// document.querySelector('.review').innerHTML =''
+
+// let filteredreviews = await db.collection('reviews').where(`${city}`, '==', dishCity).get()
+
+// let dishList = querySnapshot.docs
+//     for (let i=0; i<dishList.length; i++) {
+//       let dishData = dishList[i].data()
+//       let imageUrl = dishData.Image
+//       let restaurantName = dishData.Restaurant
+//       let dishName = dishData.Dish
+//       let review = dishData.Review
+//       let city = dishData.City
+  
+//   document.querySelector('.reviews').insertAdjacentHTML('beforeend',`
+//   <div class="md:flex flex-row border border-black w-full mt-4 items-center">
+//   <div><img src = "${imageUrl}" class="m-6 w-60"></img></div>
+//   <ul class = "ml-16">
+//   <li>Restaurant: ${restaurantName}</li>
+//   <li>City: ${city}</li>
+//   <li>Cuisine: Healthy</li>
+//   <li>Dish: ${dishName}</li>
+//   <li>Rating: ⭐⭐⭐⭐⭐</li>
+//   <li>Instagram Rating: 📸📸📸📸📸</li>
+//   <li>Comments: ${review} </li>
+//   </ul>
+//   </div>
+  
+//   `)
+// }
+// }
+
 
   } else {
     // Signed out
@@ -73,5 +137,35 @@ document.querySelector('.dropdowns').insertAdjacentHTML('beforeend', `
 
     // Starts FirebaseUI Auth
     ui.start('.sign-in-or-sign-out', authUIConfig)
+
+    let db = firebase.firestore()
+
+    let querySnapshot = await db.collection('reviews').get()
+  
+    let dishList = querySnapshot.docs
+    for (let i=0; i<dishList.length; i++) {
+      let dishData = dishList[i].data()
+      let imageUrl = dishData.Image
+      let restaurantName = dishData.Restaurant
+      let dishName = dishData.Dish
+      let review = dishData.Review
+  
+  document.querySelector('.reviews').insertAdjacentHTML('beforeend',`
+  <div class="md:flex flex-row border border-black w-full mt-4 items-center">
+  <div><img src = "${imageUrl}" class="m-6 w-60"></img></div>
+  <ul class = "ml-16">
+  <li>Restaurant: ${restaurantName}</li>
+  <li>City: Chicago</li>
+  <li>Cuisine: Healthy</li>
+  <li>Dish: ${dishName}</li>
+  <li>Rating: ⭐⭐⭐⭐⭐</li>
+  <li>Instagram Rating: 📸📸📸📸📸</li>
+  <li>Comments: ${review} </li>
+  </ul>
+  </div>
+  
+  `)
+}
+  
   }
 })
