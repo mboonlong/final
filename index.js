@@ -19,7 +19,10 @@ document.location.href = 'index.html'
 })
 
 document.querySelector('.submissionlink').insertAdjacentHTML('beforeend',`
-<a href='form.html'>Submit New Review</a>`)
+<a href='form.html'>Submit New Review</a>
+<a href="#" class="favorite-button block text-center w-40 text-white bg-yellow-500 mt-2 px-4 py-2 w-40 rounded">View Favorites</a>
+`)
+//add filter to view favorites
 
 // document.querySelector('.dropdowns').insertAdjacentHTML('beforeend', `
 
@@ -72,7 +75,9 @@ let dishList = querySnapshot.docs
   
   document.querySelector('.reviews').insertAdjacentHTML('beforeend',`
   <div class="review md:flex flex-row border border-black w-full mt-4 items-center">
-  <div><img src = "${imageUrl}" class="m-6 w-60"></img></div>
+  <div><img src = "${imageUrl}" class="m-6 w-60"></img>
+    <a href="#" class="favorite-button block text-center text-white bg-yellow-600 m-6 px-4 py-2 w-60 rounded">Add to Favorites</a>
+  </div>
   <ul class = "ml-16">
   <li>Restaurant: ${restaurantName}</li>
   <li>City: ${city}</li>
@@ -84,7 +89,14 @@ let dishList = querySnapshot.docs
   
   `)
 
-
+  // Favorite Button Action - NOT WORKING
+  let clickedFavorite = document.querySelector(`.favorite-button`)
+  clickedFavorite.addEventListener('click', async function(event) {
+    event.preventDefault()
+    clickedFavorite.classList.add('opacity-20')
+    await db.collection('favorites').doc(`${restaurantName}`).set({}) //do we need to add another collection to note favroites or can it be added?
+    console.log(`${restaurantName} was added to favorites`)
+  })
 
   // console.log(`this is review ${reviewId}`) //IDs currently undefined for some reason - we'd need to fix this in order to do the favorites 
 }
@@ -106,7 +118,9 @@ allButton.addEventListener('click', async function(event){
       let city = dishData.City
       let rating = dishData.Rating 
       reviewsDiv.insertAdjacentHTML('beforeend',`<div class="review md:flex flex-row border border-black w-full mt-4 items-center">
-      <div><img src = "${imageUrl}" class="m-6 w-60"></img></div>
+      <div><img src = "${imageUrl}" class="m-6 w-60"></img>
+        <a href="#" class="favorite-button block text-center text-white bg-yellow-600 m-6 px-4 py-2 w-60 rounded">Add to Favorites</a>
+      </div>
       <ul class = "ml-16">
       <li>Restaurant: ${restaurantName}</li>
       <li>City: ${city}</li>
@@ -398,7 +412,9 @@ philadelphiaButton.addEventListener('click', async function(event){
   
       document.querySelector('.reviews').insertAdjacentHTML('beforeend',`
       <div class="review-${dishData.id} md:flex flex-row border border-black w-full mt-4 items-center">
-      <div><img src = "${imageUrl}" class="m-6 w-60"></img></div>
+      <div><img src = "${imageUrl}" class="m-6 w-60"></img>
+      </div>
+      </div>
       <ul class = "ml-16">
       <li>Restaurant: ${restaurantName}</li>
       <li>City: ${city}</li>
