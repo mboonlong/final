@@ -20,6 +20,9 @@ document.location.href = 'index.html'
 
 document.querySelector('.submissionlink').insertAdjacentHTML('beforeend',`
 <a href='form.html'>Submit New Review</a>
+`)
+
+document.querySelector('.favoriteButton').insertAdjacentHTML('beforeend',`
 <a href="#" class="favorite-button block text-center w-40 text-white bg-yellow-500 mt-2 px-4 py-2 w-40 rounded">View Favorites</a>
 `)
 //add filter to view favorites
@@ -41,7 +44,7 @@ let dishList = querySnapshot.docs
       let city = dishData.City
       let rating = dishData.Rating 
       let dishID = dishList[i].id
-      let docRef = await db.collection('favorites').doc(`${dishID}-${user.uid}`).get()
+      let docRef = await db.collection('favorites').doc(`${dishID}-${user.uid}`).orderBy("rating","desc").get()
       let favoriteDish = docRef.data()
       if (favoriteDish) {
         reviewsDiv.insertAdjacentHTML('beforeend',`
