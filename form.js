@@ -70,6 +70,9 @@ document.addEventListener('DOMContentLoaded', async function(event) {
     document.querySelector('#review').value = '' 
     document.querySelector('#rating').value = '' 
 
+    window.alert('Your review has been submitted. Thank you!')
+
+
   })
     
 })
