@@ -614,12 +614,13 @@ philadelphiaButton.addEventListener('click', async function(event){
       let review = dishData.Review
       let city = dishData.City
       let rating = dishData.Rating 
+      let dishID = dishData.id
   
       document.querySelector('.reviews').insertAdjacentHTML('beforeend',`
-      <div class="review-${dishData.id} md:flex flex-row border border-black w-full mt-4 items-center">
+      <div class="review-${dishID} md:flex flex-row border border-black w-full mt-4 items-center">
       <div><img src = "${imageUrl}" class="m-6 w-60"></img>
       </div>
-      </div>
+      
       <ul class = "ml-16">
       <li>Restaurant: ${restaurantName}</li>
       <li>City: ${city}</li>
@@ -628,9 +629,10 @@ philadelphiaButton.addEventListener('click', async function(event){
       <li>Comments: ${review} </li>
       </ul><p> 
       </div>
-      
+    
       `)
 }
+
 
 //all button
 let allButton = document.querySelector('#all-button')
@@ -648,9 +650,9 @@ allButton.addEventListener('click', async function(event){
       let review = dishData.Review
       let city = dishData.City
       let rating = dishData.Rating 
-      reviewsDiv.insertAdjacentHTML('beforeend',`<div class="review md:flex flex-row border border-black w-full mt-4 items-center">
+      reviewsDiv.insertAdjacentHTML('beforeend',`
+      <div class="review md:flex flex-row border border-black w-full mt-4 items-center">
       <div><img src = "${imageUrl}" class="m-6 w-60"></img>
-        <a href="#" class="favorite-button block text-center text-white bg-yellow-600 m-6 px-4 py-2 w-60 rounded">Add to Favorites</a>
       </div>
       <ul class = "ml-16">
       <li>Restaurant: ${restaurantName}</li>
@@ -658,7 +660,7 @@ allButton.addEventListener('click', async function(event){
       <li>Dish: ${dishName}</li>
       <li>Rating: ${rating} Stars </li>
       <li>Comments: ${review} </li>
-      </ul><p> 
+      </ul><p>
       </div>
       `)
     }
