@@ -44,7 +44,7 @@ let dishList = querySnapshot.docs
       let city = dishData.City
       let rating = dishData.Rating 
       let dishID = dishList[i].id
-      let docRef = await db.collection('favorites').doc(`${dishID}-${user.uid}`).orderBy("rating","desc").get()
+      let docRef = await db.collection('favorites').doc(`${dishID}-${user.uid}`).get()
       let favoriteDish = docRef.data()
       if (favoriteDish) {
         reviewsDiv.insertAdjacentHTML('beforeend',`
