@@ -41,7 +41,7 @@ document.querySelector('.favorite-button').addEventListener('click', async funct
   let reviewsDiv = document.querySelector('.reviews')
   reviewsDiv.innerHTML = ''
 
-let querySnapshot = await db.collection('reviews').get()
+  let querySnapshot = await db.collection('reviews').get()
    
 let dishList = querySnapshot.docs
     for (let i=0; i<dishList.length; i++) {

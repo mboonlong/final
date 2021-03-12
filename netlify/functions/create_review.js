@@ -4,27 +4,36 @@ let firebase = require('./firebase')
 exports.handler = async function(event) {
   let db = firebase.firestore()
   let body = JSON.parse(event.body)
-  let userId = body.userId
-  let username = body.username
-  let imageUrl = body.imageUrl
+  let restaurantName = body.Restaurant
+  let city = body.City
+  let dishName = body.Dish
+  let imageUrl = body.Image
+  let rating = body.Rating
+  let review = body.Review
+  // let userId = body.userId
+  // let username = body.username
+  // let imageUrl = body.imageUrl
   
-  console.log(`user: ${userId}`)
-  console.log(`imageUrl: ${imageUrl}`)
+  // console.log(`user: ${userId}`)
+  // console.log(`imageUrl: ${imageUrl}`)
 
-  let newPost = { 
-    userId: userId,
-    username: username, 
-    imageUrl: imageUrl, 
+  let newReview = { 
+    Restaurant: restaurantName,
+    City: city,
+    Dish: dishName,
+    Image: imageUrl,
+    Rating: rating,
+    Review: review,
     created: firebase.firestore.FieldValue.serverTimestamp()
   }
 
-  let docRef = await db.collection('posts').add(newPost)
-  newPost.id = docRef.id
-  newPost.likes = 0
+  let docRef = await db.collection('reviews').add(newReview)
+  newReview.id = docRef.id
+  // newPost.likes = 0
 
   return {
     statusCode: 200,
-    body: JSON.stringify(newPost)
+    body: JSON.stringify(newReview)
   }
 
 }
