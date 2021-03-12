@@ -10,14 +10,16 @@
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.css" />
 </head>
 
+<!-- Title -->
 <body>
     <div class = "submissionlink w-1/2 p-4 text-lg underline"></div>
   <h1 class="text-center font-bold text-6xl p-6 text-yellow-500">ChowDown</h1>
 
   <div class="sign-in-or-sign-out pt-4 px-16 text-center">
-      <!-- JavaScript puts stuff here -->
+      <!-- Sign In JavaScript -->
     </div>
 
+  <!-- Cities Filter Buttons -->
   <div class = "cities mx-auto container">
     <div class = "flex">
         <div class="md:flex justify-center items-end w-full mt-8 p-8 space-y-4">
@@ -30,21 +32,19 @@
           <button id="philadelphia-button" class="city-button inline-block border bg-yellow-500 text-white rounded px-4 py-2">Philadelphia</button>
         </div>
       </div>
-   <!-- put city filters in here -->
   </div>
 
   <div class = "favoriteButton flex justify-center mb-8">
-
+<!-- Favorites JavaScript -->
   </div>
 
   
     <div class = "reviews container">
- <!-- put reviews in here -->
+ <!-- Reviews Go Here -->
   </div>
 
  
-  <!-- Put the Firebase config here -->
-<!-- The core Firebase JS SDK is always required and must be listed first -->
+  <!-- Firebase Config -->
 <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -53,14 +53,13 @@
   <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-firestore.js"></script>
 
   <script>
-    // Your web app's Firebase configuration
     var firebaseConfig = {
     apiKey: "AIzaSyCPWTdRb64Em4EsLCgg5hdSQDPql1Te8n8",
     authDomain: "chowdown-8bd8b.firebaseapp.com",
     projectId: "chowdown-8bd8b",
     storageBucket: "chowdown-8bd8b.appspot.com",
     messagingSenderId: "773957655085",
-    appId: "1:773957655085:web:e43265bae4fc5f641af6a4"}; // replace
+    appId: "1:773957655085:web:e43265bae4fc5f641af6a4"}; 
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
   </script>
