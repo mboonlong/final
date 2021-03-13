@@ -10,12 +10,6 @@ exports.handler = async function(event) {
   let imageUrl = body.Image
   let rating = body.Rating
   let review = body.Review
-  // let userId = body.userId
-  // let username = body.username
-  // let imageUrl = body.imageUrl
-  
-  // console.log(`user: ${userId}`)
-  // console.log(`imageUrl: ${imageUrl}`)
 
   let newReview = { 
     Restaurant: restaurantName,
@@ -29,7 +23,6 @@ exports.handler = async function(event) {
 
   let docRef = await db.collection('reviews').add(newReview)
   newReview.id = docRef.id
-  // newPost.likes = 0
 
   return {
     statusCode: 200,

@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', async function(event) {
     let imageUrl = document.querySelector('#image-url').value
     let review = document.querySelector('#review').value
     let rating = document.querySelector('#rating').value
+    console.log(imageUrl)
   //   let postUsername = user.displayName
   // let postImageUrl = document.querySelector('#image-url').value
   let response = await fetch('/.netlify/functions/create_review', {
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', async function(event) {
     })
   })
 
+
   let newReview = await response.json()
   document.querySelector('#restaurant-name').value = '' 
   document.querySelector('#city').value = '' 
@@ -33,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async function(event) {
   document.querySelector('#review').value = '' 
   document.querySelector('#rating').value = ''
   // document.querySelector('#image-url').value = '' // clear the image url field
-  renderReview(newReview)
+  // renderReview(newReview)
 })
 
 

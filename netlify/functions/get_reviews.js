@@ -12,39 +12,44 @@ exports.handler = async function(event) {
   // loop through the post documents
   for (let i=0; i<reviews.length; i++) {
     let reviewId = reviews[i].id                                // the ID for the given post
-    let reviewData = posts[i].data()                          // the rest of the post data
-    // let likesQuery = await db.collection('likes')           // likes from Firestore
-    //                          .where('postId', '==', postId) // for the given postId
-    //                          .get()
-    // let commentsQuery = await db.collection('comments')     // likes from Firestore
-    //                          .where('postId', '==', postId) // for the given postId
-    //                          .get()
-    // let commentsData = []                                   // an empty Array
-    // let comments = commentsQuery.docs                       // the comments documents
-
-    // loop through the comment documents
-    for (let i=0; i<comments.length; i++) {
-      let comment = comments[i].data()                      // grab the comment data
-      commentsData.push({
-        username: comment.username,                         // the author of the comment
-        text: comment.text                                  // the comment text
-      })
-    }
+    let reviewData = reviews[i].data()                          // the rest of the post data
+    // console.log(reviewData)
 
     // add a new Object of our own creation to the postsData Array
+    let restaurantName = reviewData.Restaurant
+    let city = reviewData.City
+    let dishName = reviewData.Dish
+    let imageUrl = reviewData.Image
+    let rating = reviewData.Rating
+    let review = reviewData.Review
+    
+    // console.log(imageUrl)
+
     reviewsData.push({
-      id: postId,                                           // the post ID
-      imageUrl: postData.imageUrl,                          // the image URL
-      username: postData.username,                          // the username
-      likes: likesQuery.size,                               // number of likes
-      comments: commentsData                                // an Array of comments
+      Restaurant: restaurantName,  
+      City: city,
+      Dish: dishName,
+      Image: imageUrl,                       
+      Rating: rating,
+      Review: review,
+      created: firebase.firestore.FieldValue.serverTimestamp()
     })
   }
+
+  // let newReview = { 
+  //   Restaurant: restaurantName,
+  //   City: city,
+  //   Dish: dishName,
+  //   Image: imageUrl,
+  //   Rating: rating,
+  //   Review: review,
+  //   created: firebase.firestore.FieldValue.serverTimestamp()
+  // }
   
 // return an Object in the format that a Netlify lambda function expects
   return {
     statusCode: 200,
-    body: JSON.stringify(data)
+    body: JSON.stringify(reviewsData)
   }
 }
 

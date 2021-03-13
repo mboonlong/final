@@ -74,11 +74,15 @@ let dishList = querySnapshot.docs
     }
 })
 
-let querySnapshot = await db.collection('reviews').get()
+let response = await fetch('/.netlify/functions/get_reviews') //added netlify function to get reviews here. Will need to add elsewhere
+let dishList = await response.json()
+
+// let querySnapshot = await db.collection('reviews').get()
    
-let dishList = querySnapshot.docs
+// let dishList = querySnapshot.docs
+
     for (let i=0; i<dishList.length; i++) {
-      let dishData = dishList[i].data()
+      let dishData = dishList[i]
       let imageUrl = dishData.Image
       let restaurantName = dishData.Restaurant
       let dishName = dishData.Dish
@@ -130,8 +134,9 @@ allButton.addEventListener('click', async function(event){
   let reviewsDiv = document.querySelector('.reviews')
   reviewsDiv.innerHTML = ''
 
-  let dishList = querySnapshot.docs
-    for (let i=0; i<dishList.length; i++) {
+  let dishList = querySnapshot.docs //probably need to replace with API or make it a variable 
+
+  for (let i=0; i<dishList.length; i++) {
       let dishData = dishList[i].data()
       let imageUrl = dishData.Image
       let restaurantName = dishData.Restaurant
