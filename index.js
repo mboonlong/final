@@ -115,6 +115,11 @@ let dishList = await response.json()
   
   `)
   
+// reference
+// let response = await fetch('/.netlify/functions/favorites') //added netlify function to get reviews here. Will need to add elsewhere
+// let dishList = await response.json()
+
+
   let clickedFavorite = document.querySelector(`.review-${dishID} .favorite-button`)
   clickedFavorite.addEventListener('click', async function(event) {
     event.preventDefault()
