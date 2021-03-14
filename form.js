@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', async function(event) {
   document.querySelector('#rating').value = ''
   // document.querySelector('#image-url').value = '' // clear the image url field
   // renderReview(newReview)
+  window.alert('Your review has been submitted. Thank you!')
 })
 
 
@@ -55,7 +56,7 @@ document.addEventListener('DOMContentLoaded', async function(event) {
     // document.querySelector('#review').value = '' 
     // document.querySelector('#rating').value = '' 
 
-    window.alert('Your review has been submitted. Thank you!')
+    // window.alert('Your review has been submitted. Thank you!')
 
 
   })
