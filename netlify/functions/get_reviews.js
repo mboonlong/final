@@ -5,7 +5,7 @@ exports.handler = async function(event) {
   let reviewsData = []
 
   let reviewsQuery = await db.collection('reviews')             // posts from Firestore
-                           .orderBy('created')              // ordered by created
+                          //  .orderBy('created')              // ordered by created
                            .get()
   let reviews = reviewsQuery.docs                               // the post documents themselves
   
