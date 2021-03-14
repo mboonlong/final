@@ -134,6 +134,7 @@ allButton.addEventListener('click', async function(event){
   let reviewsDiv = document.querySelector('.reviews')
   reviewsDiv.innerHTML = ''
 
+  let querySnapshot = await db.collection('reviews').get()
   let dishList = querySnapshot.docs //probably need to replace with API or make it a variable 
 
   for (let i=0; i<dishList.length; i++) {
