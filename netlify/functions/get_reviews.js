@@ -32,7 +32,7 @@ exports.handler = async function(event) {
       Image: imageUrl,                       
       Rating: rating,
       Review: review,
-      created: firebase.firestore.FieldValue.serverTimestamp()
+      // created: firebase.firestore.FieldValue.serverTimestamp()
     })
   }
 
