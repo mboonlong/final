@@ -116,8 +116,8 @@ let dishList = await response.json()
   `)
   
 // reference
-// let response = await fetch('/.netlify/functions/favorites') //added netlify function to get reviews here. Will need to add elsewhere
-// let dishList = await response.json()
+//let response = await fetch('/.netlify/functions/favorites') //added netlify function to get reviews here. Will need to add elsewhere
+//let favoriteList = await response.json()
 
 
   let clickedFavorite = document.querySelector(`.review-${dishID} .favorite-button`)
@@ -126,7 +126,9 @@ let dishList = await response.json()
     let clicked = document.querySelector(`.review-${dishID} .favorite-button`)
     clicked.classList.add('opacity-20')
 
-    await db.collection('favorites').doc(`${dishID}-${user.uid}`).set({})
+    await fetch('/.netlify/functions/favorites')
+
+    //await db.collection('favorites').doc(`${dishID}-${user.uid}`).set({})
 
   })
     }

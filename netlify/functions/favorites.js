@@ -5,26 +5,31 @@ let firebase = require('./firebase')
 exports.handler = async function(event) {
   let db = firebase.firestore()
   let body = JSON.parse(event.body)
-  let reviewId = body.reviewId
+  let dishId = body.dishId
   let userId = body.userId
   
-  console.log(`post: ${postId}`)
+  console.log(`review: ${dishId}`)
   console.log(`user: ${userId}`)
 
-  let querySnapshot = await db.collection('favorites')
-                              .where('reviewId', '==', reviewId)
-                              .where('userId', '==', userId)
-                              .get()
+  //await db.collection('favorites').doc(`${dishID}-${user.uid}`).set({})
+
+  // let querySnapshot = await db.collection('favorites')
+  //                             .where('dishId', '==', dishId)
+  //                             .where('userId', '==', userId)
+  //                             .get()
+
+                            
 //   let numberOfLikes = querySnapshot.size
 
-  if (numberOfLikes == 0) {
-    await db.collection('likes').add({
-      postId: postId,
+  //if (numberOfLikes == 0) {
+    await db.collection('favorites').doc(`${dishID}-${userID}`).add({
+      dishId: dishId,
       userId: userId
     })
     return { statusCode: 200 }
-  } else {
-    return { statusCode: 403 }
-  }
+  } 
+  //else {
+    //return { statusCode: 403 }
+ // }
 
-}
+//}
