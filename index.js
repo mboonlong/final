@@ -54,6 +54,10 @@ let dishList = querySnapshot.docs
       let rating = dishData.Rating 
       let dishID = dishList[i].id
       let docRef = await db.collection('favorites').doc(`${dishID}-${user.uid}`).get()
+      //let docRef = await db.collection('favorites')
+        //                       .where('dishID', '==', dishId)
+          //                     .where('userId', '==', user.uid)
+            //                   .get()
       let favoriteDish = docRef.data()
       if (favoriteDish) {
         reviewsDiv.insertAdjacentHTML('beforeend',`
@@ -126,12 +130,19 @@ let dishList = await response.json()
     let clicked = document.querySelector(`.review-${dishID} .favorite-button`)
     clicked.classList.add('opacity-20')
 
-    await fetch('/.netlify/functions/favorites')
+    let response = await fetch('/.netlify/functions/favorites', {
+      body: JSON.stringify({
+        dishID: dishID,
+        userID: user.uid 
+      })
+    })
+      await response.json()
+    })
 
     //await db.collection('favorites').doc(`${dishID}-${user.uid}`).set({})
 
-  })
-    }
+  }
+    
 
 
 //All button

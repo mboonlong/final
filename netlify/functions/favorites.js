@@ -22,7 +22,7 @@ exports.handler = async function(event) {
 //   let numberOfLikes = querySnapshot.size
 
   //if (numberOfLikes == 0) {
-    await db.collection('favorites').doc(`${dishID}-${userID}`).add({
+    await db.collection('favorites').doc(`${dishID}-${userId}`).add({
       dishId: dishId,
       userId: userId
     })
