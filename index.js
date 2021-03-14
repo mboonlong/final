@@ -74,11 +74,11 @@ let dishList = querySnapshot.docs
     }
 })
 
+//get_reviews lambda function works here
 let response = await fetch('/.netlify/functions/get_reviews') //added netlify function to get reviews here. Will need to add elsewhere
 let dishList = await response.json()
 
 // let querySnapshot = await db.collection('reviews').get()
-   
 // let dishList = querySnapshot.docs
 
     for (let i=0; i<dishList.length; i++) {
@@ -186,10 +186,14 @@ chicagoButton.addEventListener('click', async function(event){
   let reviewsDiv = document.querySelector('.reviews')
   reviewsDiv.innerHTML = ''
 
+//tried to add lambda function but it doesn't seem to work
+// let response = await fetch('/.netlify/functions/get_reviews') //added netlify function to get reviews here. Will need to add elsewhere
+// let dishList = await response.json()
+  
   let querySnapshot = await db.collection('reviews').get()
-
   let dishList = querySnapshot.docs
-    for (let i=0; i<dishList.length; i++) {
+    
+  for (let i=0; i<dishList.length; i++) {
       let dishData = dishList[i].data()
       let imageUrl = dishData.Image
       let restaurantName = dishData.Restaurant
@@ -525,8 +529,8 @@ philadelphiaButton.addEventListener('click', async function(event){
     let db = firebase.firestore()
 
     let querySnapshot = await db.collection('reviews').get()
-  
     let dishList = querySnapshot.docs
+
     for (let i=0; i<dishList.length; i++) {
       let dishData = dishList[i].data()
       let imageUrl = dishData.Image
@@ -596,8 +600,8 @@ chicagoButton.addEventListener('click', async function(event){
   reviewsDiv.innerHTML = ''
 
   let querySnapshot = await db.collection('reviews').get()
-
   let dishList = querySnapshot.docs
+
     for (let i=0; i<dishList.length; i++) {
       let dishData = dishList[i].data()
       let imageUrl = dishData.Image
@@ -630,9 +634,9 @@ losAngelesButton.addEventListener('click', async function(event){
   reviewsDiv.innerHTML = ''
 
   let querySnapshot = await db.collection('reviews').get()
-
   let dishList = querySnapshot.docs
-    for (let i=0; i<dishList.length; i++) {
+  
+  for (let i=0; i<dishList.length; i++) {
       let dishData = dishList[i].data()
       let imageUrl = dishData.Image
       let restaurantName = dishData.Restaurant
@@ -664,8 +668,8 @@ newYorkButton.addEventListener('click', async function(event){
   reviewsDiv.innerHTML = ''
 
   let querySnapshot = await db.collection('reviews').get()
-
   let dishList = querySnapshot.docs
+
     for (let i=0; i<dishList.length; i++) {
       let dishData = dishList[i].data()
       let imageUrl = dishData.Image
@@ -698,8 +702,8 @@ bostonButton.addEventListener('click', async function(event){
   reviewsDiv.innerHTML = ''
 
   let querySnapshot = await db.collection('reviews').get()
-
   let dishList = querySnapshot.docs
+
     for (let i=0; i<dishList.length; i++) {
       let dishData = dishList[i].data()
       let imageUrl = dishData.Image
@@ -732,9 +736,9 @@ miamiButton.addEventListener('click', async function(event){
   reviewsDiv.innerHTML = ''
 
   let querySnapshot = await db.collection('reviews').get()
-
   let dishList = querySnapshot.docs
-    for (let i=0; i<dishList.length; i++) {
+  
+  for (let i=0; i<dishList.length; i++) {
       let dishData = dishList[i].data()
       let imageUrl = dishData.Image
       let restaurantName = dishData.Restaurant
@@ -766,9 +770,9 @@ philadelphiaButton.addEventListener('click', async function(event){
   reviewsDiv.innerHTML = ''
 
   let querySnapshot = await db.collection('reviews').get()
-
   let dishList = querySnapshot.docs
-    for (let i=0; i<dishList.length; i++) {
+  
+  for (let i=0; i<dishList.length; i++) {
       let dishData = dishList[i].data()
       let imageUrl = dishData.Image
       let restaurantName = dishData.Restaurant
